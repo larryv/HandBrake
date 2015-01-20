@@ -432,11 +432,7 @@
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="W6s-9y-dwJ"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Check for Updates…" id="4964">
-                                <connections>
-                                    <action selector="checkForUpdates:" target="4963" id="4966"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="Check for Updates…" enabled="NO" id="4964"/>
                             <menuItem isSeparatorItem="YES" id="970">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -1124,7 +1120,6 @@ DQ
                 <outlet property="presetsMenu" destination="1949" id="bkm-2h-uFI"/>
             </connections>
         </customObject>
-        <customObject id="4963" customClass="SUUpdater"/>
         <userDefaultsController representsSharedInstance="YES" id="5676"/>
     </objects>
 </document>

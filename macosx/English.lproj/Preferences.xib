@@ -60,7 +60,7 @@
                 <popUpButton verticalHuggingPriority="750" id="414">
                     <rect key="frame" x="324" y="315" width="104" height="22"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <popUpButtonCell key="cell" type="push" title="Weekly" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="604800" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="417" id="415">
+                    <popUpButtonCell key="cell" type="push" title="Weekly" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" tag="604800" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="417" id="415">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                         <menu key="menu" title="OtherViews" id="416">
@@ -71,10 +71,6 @@
                             </items>
                         </menu>
                     </popUpButtonCell>
-                    <connections>
-                        <binding destination="410" name="enabled" keyPath="automaticallyChecksForUpdates" id="433"/>
-                        <binding destination="410" name="selectedTag" keyPath="updateCheckInterval" id="434"/>
-                    </connections>
                 </popUpButton>
                 <popUpButton verticalHuggingPriority="750" id="289">
                     <rect key="frame" x="255" y="184" width="96" height="22"/>
@@ -144,13 +140,10 @@
                 <button id="243">
                     <rect key="frame" x="124" y="318" width="197" height="18"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="check" title="Automatically check for updates:" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="305">
+                    <buttonCell key="cell" type="check" title="Automatically check for updates:" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" enabled="NO" inset="2" id="305">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
-                    <connections>
-                        <binding destination="410" name="value" keyPath="automaticallyChecksForUpdates" id="429"/>
-                    </connections>
                 </button>
                 <textField verticalHuggingPriority="750" id="242">
                     <rect key="frame" x="18" y="276" width="103" height="14"/>
@@ -622,6 +615,5 @@
             </subviews>
             <point key="canvasLocation" x="-50" y="-68"/>
         </customView>
-        <customObject id="410" userLabel="Updater" customClass="SUUpdater"/>
     </objects>
 </document>
