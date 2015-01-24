@@ -23,3 +23,8 @@ ifeq (1-i686,$(BUILD.cross)-$(BUILD.machine))
 else ifeq (1-x86_64,$(BUILD.cross)-$(BUILD.machine))
     LIBVPX.CONFIGURE.extra += --target=x86_64-win64-gcc
 endif
+
+LIBVPX.BUILD.extra = quiet:=''
+LIBVPX.INSTALL.extra = quiet:=''
+LIBVPX.UNINSTALL.extra = quiet:=''
+LIBVPX.CLEAN.extra = quiet:=''

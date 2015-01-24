@@ -3,4 +3,4 @@ $(eval $(call import.CONTRIB.defs,FRIBIDI))
 
 FRIBIDI.FETCH.url = http://download.handbrake.fr/handbrake/contrib/fribidi-0.19.2.tar.gz
 
-FRIBIDI.CONFIGURE.bootstrap = ./bootstrap;
+FRIBIDI.CONFIGURE.bootstrap = ./bootstrap --verbose;

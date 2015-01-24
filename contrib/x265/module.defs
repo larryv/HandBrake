@@ -9,7 +9,8 @@ X265.CONFIGURE.args.prefix = -DCMAKE_INSTALL_PREFIX="$(X265.CONFIGURE.prefix)"
 X265.CONFIGURE.deps        =
 X265.CONFIGURE.static      =
 X265.CONFIGURE.shared      = -DENABLE_SHARED=OFF
-X265.CONFIGURE.extra       = -DENABLE_CLI=OFF -DHIGH_BIT_DEPTH=OFF
+X265.CONFIGURE.extra       = -DENABLE_CLI=OFF -DHIGH_BIT_DEPTH=OFF \
+                             -DCMAKE_VERBOSE_MAKEFILE=TRUE
 
 ifeq (1,$(BUILD.cross))
     ifeq (mingw,$(BUILD.system))
