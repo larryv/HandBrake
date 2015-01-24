@@ -28,6 +28,23 @@ ifeq (yes,$(CCACHE))
     LIBVPX.CONFIGURE.extra += --enable-ccache
 endif
 
+ifeq (darwin,$(BUILD.system))
+    osx_minor_version := $(word 2,$(subst ., ,$(MACOSX_DEPLOYMENT_TARGET)))
+    ifneq ($(osx_minor_version),)
+        darwin_vers := $(shell echo $$(($(osx_minor_version) + 4)))
+        ifeq (i386,$(BUILD.arch))
+            LIBVPX.CONFIGURE.extra += \
+                --target=x86-darwin$(darwin_vers)-gcc
+        else ifeq (ppc,$(BUILD.arch))
+            LIBVPX.CONFIGURE.extra += \
+                --target=ppc32-darwin$(darwin_vers)-gcc
+        else
+            LIBVPX.CONFIGURE.extra += \
+                --target=$(BUILD.arch)-darwin$(darwin_vers)-gcc
+        endif
+    endif
+endif
+
 LIBVPX.BUILD.extra = quiet:=''
 LIBVPX.INSTALL.extra = quiet:=''
 LIBVPX.UNINSTALL.extra = quiet:=''
