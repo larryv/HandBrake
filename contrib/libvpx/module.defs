@@ -24,6 +24,10 @@ else ifeq (1-x86_64,$(BUILD.cross)-$(BUILD.machine))
     LIBVPX.CONFIGURE.extra += --target=x86_64-win64-gcc
 endif
 
+ifeq (yes,$(CCACHE))
+    LIBVPX.CONFIGURE.extra += --enable-ccache
+endif
+
 LIBVPX.BUILD.extra = quiet:=''
 LIBVPX.INSTALL.extra = quiet:=''
 LIBVPX.UNINSTALL.extra = quiet:=''
