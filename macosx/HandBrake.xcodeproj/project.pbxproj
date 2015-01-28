@@ -1375,6 +1375,7 @@
 					"\"$(EXTERNAL_BUILD)/libhb\"",
 					"\"$(EXTERNAL_BUILD)/contrib/include\"",
 				);
+				INSTALL_PATH = "$(PREFIX)/bin";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(EXTERNAL_BUILD)/libhb\"",
@@ -1420,6 +1421,7 @@
 					"\"$(EXTERNAL_BUILD)/contrib/include\"",
 				);
 				INFOPLIST_FILE = "$(EXTERNAL_BUILD)/macosx/Info.plist";
+				INSTALL_PATH = "$(APPLICATIONS_DIR)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(EXTERNAL_BUILD)/libhb\"",

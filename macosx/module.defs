@@ -55,6 +55,10 @@ MACOSX.XCODE = $(strip \
         \
         $(if $(GCC_VERSION),GCC_VERSION='$(GCC_VERSION)') \
         \
+        APPLICATIONS_DIR='$(APPLICATIONS_DIR)' \
+        DSTROOT='$(DESTDIR)' \
+        PREFIX='$(PREFIX)' \
+        \
         SYMROOT='$(XCODE.symroot)' \
         CONFIGURATION_BUILD_DIR='$(XCODE.symroot)' \
         CONFIGURATION_TEMP_DIR='$(XCODE.symroot)' \
