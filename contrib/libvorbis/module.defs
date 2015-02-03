@@ -6,4 +6,4 @@ LIBVORBIS.EXTRACT.tarbase = aotuv-b6.03_20110424
 
 LIBVORBIS.CONFIGURE.extra = --with-ogg=$(call fn.ABSOLUTE,$(CONTRIB.build/)) HAVE_PKG_CONFIG="no"
 
-LIBVORBIS.CONFIGURE.bootstrap = rm -fr aclocal.m4 autom4te.cache configure; autoreconf -I m4 -fiv;
+LIBVORBIS.CONFIGURE.bootstrap = rm -fr aclocal.m4 autom4te.cache configure; $(PREFIX)/bin/autoreconf -I m4 -fiv;

@@ -6,4 +6,4 @@ LIBOGG.EXTRACT.tarbase = libogg-1.3.0
 
 LIBOGG.CONFIGURE.extra = --disable-sdl
 
-LIBOGG.CONFIGURE.bootstrap = rm -fr aclocal.m4 autom4te.cache configure; autoreconf -fiv;
+LIBOGG.CONFIGURE.bootstrap = rm -fr aclocal.m4 autom4te.cache configure; $(PREFIX)/bin/autoreconf -fiv;

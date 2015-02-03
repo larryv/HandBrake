@@ -1,0 +1,62 @@
+Index: fribidi-0.19.2/bootstrap
+===================================================================
+--- fribidi-0.19.2.orig/bootstrap
++++ fribidi-0.19.2/bootstrap
+@@ -100,7 +100,7 @@ test -n "$INSTALL" && ADDMISSING=--add-m
+ 
+ # use autoreconf if possible, just check for version 2+
+ if test "$AUTORECONF" = auto; then
+-	case `autoreconf --version 2>/dev/null` in
++	case `$PREFIX/bin/autoreconf --version 2>/dev/null` in
+ 		*"autoreconf (GNU Autoconf) 2."* )
+ 			echo Usable autoreconf found, running
+ 		;;
+@@ -111,34 +111,34 @@ if test "$AUTORECONF" = auto; then
+ fi
+ 
+ if test -n "$AUTORECONF";  then
+-	$DRYRUN autoreconf $HELP $VERSION $VERBOSE $DEBUG $FORCE $INSTALL $SYMLINK $MAKE $WARNS $AUTORECONFFLAGS || exit $?
++	$DRYRUN $PREFIX/bin/autoreconf $HELP $VERSION $VERBOSE $DEBUG $FORCE $INSTALL $SYMLINK $MAKE $WARNS $AUTORECONFFLAGS || exit $?
+ else
+ 
+ # add files 'config.guess', 'config.sub', 'ltconfig', 'ltmain.sh'
+ test -f Makefile.am && MY_LIBTOOLIZEFLAGS=--automake
+ 
+ if grep -q '^ *AC_PROG_LIBTOOL' configure.ac configure.in 2>/dev/null; then
+-	$DRYRUN libtoolize $HELP $VERSION $COPY $DEBUG $FORCE $MY_LIBTOOLIZEFLAGS $LIBTOOLIZEFLAGS || exit $?
++	$DRYRUN $PREFIX/bin/glibtoolize $HELP $VERSION $COPY $DEBUG $FORCE $MY_LIBTOOLIZEFLAGS $LIBTOOLIZEFLAGS || exit $?
+ fi
+ 
+ # generate 'aclocal.m4'
+ if test -f configure.ac -o configure.in; then
+-	$DRYRUN aclocal $HELP $VERSION $VERBOSE $FORCE $ACLOCALFLAGS || exit $?
++	$DRYRUN $PREFIX/bin/aclocal $HELP $VERSION $VERBOSE $FORCE $ACLOCALFLAGS || exit $?
+ fi
+ 
+ # generate 'config.h.in'
+ if test -f configure.ac -o configure.in; then
+-	$DRYRUN autoheader $HELP $VERSION $VERBOSE $DEBUG $FORCE $WARNS $AUTOHEADERFLAGS || exit $?
++	$DRYRUN $PREFIX/bin/autoheader $HELP $VERSION $VERBOSE $DEBUG $FORCE $WARNS $AUTOHEADERFLAGS || exit $?
+ fi
+ 
+ #  generate Makefile.in's from Makefile.am's
+ if test -f Makefile.am; then
+-	$DRYRUN automake $HELP $VERSION $VERBOSE $ADDMISSING $COPY $FORCE $WARNS $AUTOMAKEFLAGS || exit $?
++	$DRYRUN $PREFIX/bin/automake $HELP $VERSION $VERBOSE $ADDMISSING $COPY $FORCE $WARNS $AUTOMAKEFLAGS || exit $?
+ fi
+ 
+ # generate configure from configure.ac
+ if test -f configure.ac -o -f configure.in; then
+-	$DRYRUN autoconf $HELP $VERSION $VERBOSE $DEBUG $FORCE $WARNS $AUTOCONFFLAGS || exit $?
++	$DRYRUN $PREFIX/bin/autoconf $HELP $VERSION $VERBOSE $DEBUG $FORCE $WARNS $AUTOCONFFLAGS || exit $?
+ fi
+ 
+ fi # !AUTOCONF
+@@ -156,6 +156,6 @@ fi
+ # make
+ if test -n "$MAKE"; then
+ 	if test -f Makefile; then
+-		$DRYRUN make $MAKEFLAGS || exit $?
++		$DRYRUN $MAKE_CMD $MAKEFLAGS || exit $?
+ 	fi
+ fi
