@@ -16,9 +16,23 @@ clean: macosx.clean
 install: macosx.install
 xclean: clean
 
+.PHONY: macosx.gui.build macosx.gui.install macosx.cli.build macosx.cli.install
+
+macosx.gui.build:
+	$(call MACOSX.XCODE,HandBrake,build)
+
+macosx.gui.install:
+	$(call MACOSX.XCODE,HandBrake,install)
+
+macosx.cli.build:
+	$(call MACOSX.XCODE,HandBrakeCLI,build)
+
+macosx.cli.install:
+	$(call MACOSX.XCODE,HandBrakeCLI,install)
+
 ###############################################################################
 
-MACOSX.goals = $(filter-out build clean install,$(MAKECMDGOALS))
+MACOSX.goals = $(filter-out build clean install macosx.gui.build macosx.gui.install macosx.cli.build macosx.cli.install,$(MAKECMDGOALS))
 
 $(MACOSX.goals): __goals__
 	@true
