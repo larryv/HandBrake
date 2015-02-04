@@ -53,6 +53,8 @@ MACOSX.XCODE = $(strip \
         $(MACOSX.configuration) \
         $(MACOSX.xcconfig) \
         \
+        $(if $(GCC_VERSION),GCC_VERSION='$(GCC_VERSION)') \
+        \
         SYMROOT='$(XCODE.symroot)' \
         CONFIGURATION_BUILD_DIR='$(XCODE.symroot)' \
         CONFIGURATION_TEMP_DIR='$(XCODE.symroot)' \
