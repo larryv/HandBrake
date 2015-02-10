@@ -1403,7 +1403,7 @@ try:
         ar    = ToolProbe( 'AR.exe',    'ar' )
         cp    = ToolProbe( 'CP.exe',    'cp' )
         curl  = ToolProbe( 'CURL.exe',  'curl', abort=False )
-        gcc   = ToolProbe( 'GCC.gcc',   'gcc', IfHost( 'gcc-4', '*-*-cygwin*' ))
+        gcc   = ToolProbe( 'GCC.gcc',   'gcc', IfHost( 'gcc-4', '*-*-cygwin*' ), abort=False)
 
         if host.match( '*-*-darwin*' ):
             gmake = ToolProbe( 'GMAKE.exe', 'make', 'gmake' )
